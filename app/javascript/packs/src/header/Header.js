@@ -20,7 +20,7 @@ const loggedOutHeader = (
 
 const Header = ({ user, loggedIn }) => (
   <header className="main-header">
-    <h1 className="header-title">Rail React Template</h1>
+    <h1 className="header-title">LetsHike</h1>
     <nav>
       { loggedIn ? loggedInHeader : loggedOutHeader }
     </nav>
