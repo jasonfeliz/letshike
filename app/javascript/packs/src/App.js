@@ -11,6 +11,8 @@ import SignIn from './auth/components/SignIn.js'
 import SignUp from './auth/components/SignUp.js'
 import SignOut from './auth/components/SignOut.js'
 import ChangePassword from './auth/components/ChangePassword.js'
+import Home from './home/Home.js'
+
 
 class App extends Component {
   constructor(props){
@@ -65,6 +67,10 @@ class App extends Component {
           />
           <AuthenticatedRoute path='/change-password' loggedIn={loggedIn} render={() => (
               <ChangePassword user={user} flash={this.displayFlash} />
+            )}
+          />
+        <AuthenticatedRoute path='/home' loggedIn={loggedIn} render={() => (
+              <Home user={user} flash={this.displayFlash} />
             )}
           />
         </main>
