@@ -1,6 +1,6 @@
 let apiUrl = ""
 const apiUrls = {
-  production: '<insert-production-url>',
+  production: 'https://letshike.herokuapp.com',
   development: 'http://localhost:3000'
 }
 
