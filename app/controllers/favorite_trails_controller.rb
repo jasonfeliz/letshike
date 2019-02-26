@@ -1,10 +1,11 @@
 class FavoriteTrailsController < ApiController
   before_action :set_favorite_trail, only: [:show, :update, :destroy]
+  before_action :require_authentication
 
   # GET /favorite_trails
   # GET /favorite_trails.json
   def index
-    @favorite_trails = FavoriteTrail.where(user_id: 1)
+    @favorite_trails = FavoriteTrail.where(user_id: current_user.id)
     @new_arr = @favorite_trails.map {|trail| trail.trail_id }
     render json: @new_arr, status: :ok
 
