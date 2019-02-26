@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   get '/users' => 'users#index'
 
-  resources :favorite_trails, except: :show
+  resources :favorite_trails, except: %i[show update]
 end

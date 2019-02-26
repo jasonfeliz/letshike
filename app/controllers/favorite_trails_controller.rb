@@ -4,33 +4,24 @@ class FavoriteTrailsController < ApiController
   # GET /favorite_trails
   # GET /favorite_trails.json
   def index
-    @favorite_trails = FavoriteTrail.all
+    @favorite_trails = FavoriteTrail.where(user_id: 1)
+    @new_arr = @favorite_trails.map {|trail| trail.trail_id }
+    render json: @new_arr, status: :ok
+
   end
 
   # POST /favorite_trails
-  # POST /favorite_trails.json
   def create
     @favorite_trail = FavoriteTrail.new(favorite_trail_params)
 
     if @favorite_trail.save
-      render :show, status: :created, location: @favorite_trail
-    else
-      render json: @favorite_trail.errors, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /favorite_trails/1
-  # PATCH/PUT /favorite_trails/1.json
-  def update
-    if @favorite_trail.update(favorite_trail_params)
-      render :show, status: :ok, location: @favorite_trail
+      render :show, status: :created
     else
       render json: @favorite_trail.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /favorite_trails/1
-  # DELETE /favorite_trails/1.json
   def destroy
     @favorite_trail.destroy
   end

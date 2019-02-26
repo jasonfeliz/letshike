@@ -1,5 +1,9 @@
 class UsersController < ApiController
-  before_action :require_authentication, except: %i[signup signin]
+  before_action :require_authentication, except: %i[index signup signin]
+  
+  def index
+    render json: User.all
+  end
 
   # /sign_up
   def signup
