@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link, Route} from 'react-router-dom'
 
 import { getWeatherApi } from '../../api/openWeatherApi.js'
+import { getTrailsApi } from '../../api/hikingProjectApi.js'
+
 
 class Search extends Component {
   constructor(){
@@ -32,7 +34,6 @@ class Search extends Component {
     e.preventDefault()
     getWeatherApi(searchQuery)
       .then((res) => {
-        console.log(res.data)
         this.setState({
           cityCoord: res.data.coord,
           main: res.data.main,
@@ -43,13 +44,31 @@ class Search extends Component {
             return element.description
           })
         })
+      })
+      .then(() => {
+        const { cityCoord, filterDistance } = this.state
+        return getTrailsApi(cityCoord.lon,cityCoord.lat,filterDistance)
+      })
+      .then((res) => {
 
+        this.setState({
+          searchResults: res.data.trails.map((element) => {
+            return element
+          })
+        })
 
       })
       .then(() => console.log(this.state))
   }
+
+
   render(){
     const { searchQuery, filterDistance, searchResults } = this.state
+
+    const TrailsList = searchResults.map((trail) => {
+      
+    })
+
     const searchHtml = (
       <React.Fragment>
         <div className="search">
