@@ -3,7 +3,7 @@ import { Link, Route} from 'react-router-dom'
 
 import { getWeatherApi } from '../../api/openWeatherApi.js'
 import { getTrailsApi } from '../../api/hikingProjectApi.js'
-
+import Trail from './Trail'
 
 class Search extends Component {
   constructor(){
@@ -11,7 +11,7 @@ class Search extends Component {
 
     this.state = {
       searchQuery: '',
-      filterDistance:'',
+      filterDistance:'10',
       cityCoord:{},
       main:{},
       wind:'',
@@ -63,10 +63,11 @@ class Search extends Component {
 
 
   render(){
-    const { searchQuery, filterDistance, searchResults } = this.state
-
-    const TrailsList = searchResults.map((trail) => {
-      
+    const { searchQuery, filterDistance, searchResults  } = this.state
+    const TrailsList = searchResults.map((trail,index) => {
+      return (
+        <Trail key={index} data={trail} state={this.state} />
+      )
     })
 
     const searchHtml = (
@@ -104,6 +105,7 @@ class Search extends Component {
     return (
       <div>
         {searchHtml}
+        {TrailsList}
       </div>
 
     )
