@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link, Route} from 'react-router-dom'
 
+import { getWeatherApi } from '../../api/openWeatherApi.js'
+
 class Search extends Component {
   constructor(){
     super()
@@ -8,7 +10,13 @@ class Search extends Component {
     this.state = {
       searchQuery: '',
       filterDistance:'',
-      weatherResults:[],
+      cityCoord:{},
+      main:{},
+      wind:'',
+      description: [],
+      sunrise: '',
+      sunset:'',
+
       searchResults: []
     }
   }
@@ -20,8 +28,25 @@ class Search extends Component {
   }
 
   submitQuery = (e) => {
+    const { searchQuery, filterDistance, searchResults } = this.state
     e.preventDefault()
-    console.log('i sbumited something')
+    getWeatherApi(searchQuery)
+      .then((res) => {
+        console.log(res.data)
+        this.setState({
+          cityCoord: res.data.coord,
+          main: res.data.main,
+          wind: res.data.wind,
+          sunrise: res.data.sys.sunrise,
+          sunset: res.data.sys.sunset,
+          description: res.data.weather.map((element) => {
+            return element.description
+          })
+        })
+
+
+      })
+      .then(() => console.log(this.state))
   }
   render(){
     const { searchQuery, filterDistance, searchResults } = this.state
