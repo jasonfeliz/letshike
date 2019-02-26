@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :favorite_trails, except: :show
   #create default devise user routes -- not needed in API app
   #use custom routes
   # devise_for :users

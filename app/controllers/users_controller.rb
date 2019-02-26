@@ -13,7 +13,7 @@ class UsersController < ApiController
 
   # /sign in
   def signin
-    # finds user by
+    # finds user by email
     user = User.where(email: user_creds[:email]).first
 
     if(user &&
