@@ -4,19 +4,22 @@ import { Link, Route} from 'react-router-dom'
 import { getWeatherApi } from '../../api/openWeatherApi.js'
 import { getTrailsApi } from '../../api/hikingProjectApi.js'
 import Trail from './Trail'
+import Weather from './Weather'
 
 class Search extends Component {
   constructor(){
     super()
 
     this.state = {
+      currentTime: '',
       searchQuery: '',
       filterDistance:'10',
+      cityName: '',
       cityCoord:{},
       main:{},
       wind:'',
-      description: [],
-      sunrise: '',
+      description: {},
+      sunrise: [],
       sunset:'',
 
       searchResults: []
@@ -34,16 +37,19 @@ class Search extends Component {
     e.preventDefault()
     getWeatherApi(searchQuery)
       .then((res) => {
+        console.log(res.data)
+        const sunrise = new Date(res.data.sys.sunrise)
+        const sunset = new Date(res.data.sys.sunset)
         this.setState({
+          cityName: res.data.name,
           cityCoord: res.data.coord,
           main: res.data.main,
           wind: res.data.wind,
-          sunrise: res.data.sys.sunrise,
-          sunset: res.data.sys.sunset,
-          description: res.data.weather.map((element) => {
-            return element.description
-          })
+          sunrise: sunrise.toLocaleTimeString('en-US'),
+          sunset: sunset.toLocaleTimeString('en-US'),
+          description: res.data.weather[0]
         })
+        console.log(this.state.sunrise)
       })
       .then(() => {
         const { cityCoord, filterDistance } = this.state
@@ -66,9 +72,15 @@ class Search extends Component {
     const { searchQuery, filterDistance, searchResults  } = this.state
     const TrailsList = searchResults.map((trail,index) => {
       return (
-        <Trail key={index} data={trail} state={this.state} />
+        <Trail key={index} data={trail} />
       )
     })
+
+    const weatherHtml = (
+      <React.Fragment>
+        <Weather data={this.state} />
+      </React.Fragment>
+    )
 
     const searchHtml = (
       <React.Fragment>
@@ -105,6 +117,7 @@ class Search extends Component {
     return (
       <div>
         {searchHtml}
+        {weatherHtml}
         {TrailsList}
       </div>
 
