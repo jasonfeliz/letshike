@@ -1,15 +1,10 @@
-class FavoriteTrailsController < ApplicationController
+class FavoriteTrailsController < ApiController
   before_action :set_favorite_trail, only: [:show, :update, :destroy]
 
   # GET /favorite_trails
   # GET /favorite_trails.json
   def index
     @favorite_trails = FavoriteTrail.all
-  end
-
-  # GET /favorite_trails/1
-  # GET /favorite_trails/1.json
-  def show
   end
 
   # POST /favorite_trails
@@ -48,6 +43,6 @@ class FavoriteTrailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def favorite_trail_params
-      params.require(:favorite_trail).permit(:user, :trail_id)
+      params.require(:favorite_trail).permit(:user_id, :trail_id)
     end
 end

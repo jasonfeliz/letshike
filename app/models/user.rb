@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
   validates :password_confirmation, presence: true, on: :create
   validates :email, uniqueness: true, presence: true
+
+  has_many :favorite_trails, dependent: :destroy
 end
