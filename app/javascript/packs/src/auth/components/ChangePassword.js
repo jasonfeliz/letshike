@@ -32,7 +32,7 @@ class ChangePassword extends Component {
     }
     changePassword(dataObj)
       .then(() => flash(messages.changePwSuccess, 'flash-success'))
-      .then(() => history.push('/'))
+      .then(() => history.push('/home'))
       .catch(() => flash(messages.changePwError, 'flash-error'))
   }
 

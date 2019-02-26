@@ -32,7 +32,7 @@ class SignIn extends Component {
     signIn(dataObj)
       .then(res => setUser(res.data))
       .then(() => flash(messages.signInSuccess, 'flash-success'))
-      .then(() => history.push('/'))
+      .then(() => history.push('/home'))
       .catch(() => flash(messages.signInError, 'flash-error'))
 
   }

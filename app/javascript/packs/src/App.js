@@ -69,7 +69,7 @@ class App extends Component {
               <ChangePassword user={user} flash={this.displayFlash} />
             )}
           />
-        <AuthenticatedRoute path='/home' loggedIn={loggedIn} render={() => (
+          <AuthenticatedRoute path='/home' loggedIn={loggedIn} render={() => (
               <Home user={user} flash={this.displayFlash} />
             )}
           />
