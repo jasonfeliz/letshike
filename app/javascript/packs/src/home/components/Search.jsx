@@ -107,7 +107,7 @@ class Search extends Component {
     const searchHtml = (
       <React.Fragment>
         <div className="search">
-          <form onSubmit={this.submitQuery}>
+          <form onSubmit={this.submitQuery} className="auth-form search-form">
             <div>
               <label htmlFor="searchQuery">Search trails by City: </label>
               <input
@@ -118,7 +118,6 @@ class Search extends Component {
                 placeholder="Enter City"
                 onChange={this.handleChange}
               />
-            <button type="submit">Search</button>
             </div>
             <div>
               <label htmlFor="filterDistance">Distance: </label>
@@ -127,7 +126,7 @@ class Search extends Component {
                 <option value="100">100 miles</option>
               </select>
             </div>
-
+            <button type="submit">Search</button>
           </form>
 
         </div>

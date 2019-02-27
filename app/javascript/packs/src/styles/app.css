@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  background: #c31432;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #dd3e54;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #6be585, #dd3e54);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #6be585, #dd3e54); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 color:#fff;
 }
 
@@ -24,7 +25,9 @@ li {
 button[type="submit"] {
   width: 100px;
 }
-
+label {
+  display: none;
+}
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #fff;
 }
@@ -71,9 +74,7 @@ button[type="submit"] {
   width: 85%;
   margin: 0 auto;
 }
-.search {
-  margin-top: 50px;
-}
+
 /* Search results  */
 .trailsList {
   display: flex;
@@ -93,8 +94,7 @@ button[type="submit"] {
 }
 .trailInfo {
   padding: 15px 0px 5px 0px;
-  border: solid 1px rgba(0,0,0,.1);
-  border-top: none;
+  border-bottom: solid 1px #fff;
 }
 .itemImg  {
   height: 300px;
@@ -118,7 +118,6 @@ button[type="submit"] {
 
 .top > span {
   font-size: .9em;
-  color: rgba(0,0,0,.65);
 }
 .bottom > p {
   margin-bottom: 5px;
@@ -141,9 +140,7 @@ button[type="submit"] {
 .auth-form {
   text-align: center;
 }
-.auth-form label {
-  display: none;
-}
+
 .auth-form input {
   background: transparent;
   border: none;
@@ -168,5 +165,14 @@ button[type="submit"] {
   outline:none;
 }
 /*  Search */
+.search {
+  margin-top: 50px;
+}
 
+.search-form {
+  align-items: center;
+}
+.search-form button {
+  display: none;
+}
 /* Weather */
