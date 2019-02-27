@@ -13,7 +13,7 @@ class Search extends Component {
     this.state = {
       currentTime: '',
       searchQuery: '',
-      filterDistance:'10',
+      filterDistance:'30',
       cityName: '',
       cityCoord:{},
       main:{},
@@ -63,6 +63,7 @@ class Search extends Component {
             return element
           })
         })
+        console.log(this.state.searchResults)
 
       })
       .then(() => {
@@ -122,8 +123,8 @@ class Search extends Component {
             <div>
               <label htmlFor="filterDistance">Distance: </label>
               <select required type="text" name="filterDistance" value={filterDistance} onChange={this.handleChange} >
-                <option value="10" >10 miles</option>
-                <option value="50">50 miles</option>
+                <option value="30" >30 miles</option>
+                <option value="100">100 miles</option>
               </select>
             </div>
 
@@ -139,7 +140,10 @@ class Search extends Component {
       <div>
         {searchHtml}
         {weatherHtml}
-        {TrailsList}
+        <ul className="trailsList">
+          {TrailsList}
+        </ul>
+
       </div>
 
     )

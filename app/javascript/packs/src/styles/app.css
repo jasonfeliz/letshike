@@ -11,6 +11,9 @@ input {
   margin-right: 15px;
 }
 
+li {
+  list-style: none;
+}
 button[type="submit"] {
   width: 100px;
 }
@@ -44,7 +47,33 @@ button[type="submit"] {
   color: #961717;
 }
 
-
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
 .search {
   margin-top: 50px;
 }
+
+.trailsList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.trailsListItem {
+  width: 30%;
+}
+
+.itemImg img {
+  width: 300px;
+  height: 300px;
+}
+
+.top,
+.bottom {
+  display: flex;
+  align-items: center;
+}
+
+.top:first-child,
+.bottom
