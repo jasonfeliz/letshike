@@ -1,15 +1,20 @@
-.header-title {
-  color: #CC342D;
+body {
+  margin: 0;
+  background: #c31432;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color:#fff;
 }
+
 a {
   margin-right: 10px;
+  color:#fff;
+  text-decoration: none;
 }
 label {
   margin-right: 5px;
 }
-input {
-  margin-right: 15px;
-}
+
 ul {
   padding: 0;
 }
@@ -18,6 +23,19 @@ li {
 }
 button[type="submit"] {
   width: 100px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #fff;
 }
 .flash-success,
 .flash-warning,
@@ -56,7 +74,7 @@ button[type="submit"] {
 .search {
   margin-top: 50px;
 }
-
+/* Search results  */
 .trailsList {
   display: flex;
   flex-wrap: wrap;
@@ -105,3 +123,49 @@ button[type="submit"] {
 .bottom > p {
   margin-bottom: 5px;
 }
+
+/* Header */
+.header-title {
+  color: #CC342D;
+}
+.main-header {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.main-header h1 {
+  margin-right: auto;
+}
+
+/* auth form */
+.auth-form {
+  text-align: center;
+}
+.auth-form label {
+  display: none;
+}
+.auth-form input {
+  background: transparent;
+  border: none;
+  padding: 10px;
+  width: 250px;
+  border-bottom: solid 1px #fff;
+  color: #fff;
+  font-size: 14px;
+}
+.auth-form button{
+  margin-top: 20px;
+  width: 250px;
+  height:30px;
+  border: solid 1px #fff;
+  color:#fff;
+  border-radius: 100px;
+  background: transparent;
+  cursor:pointer;
+}
+.auth-form input:focus {
+  outline:none;
+}
+/*  Search */
+
+/* Weather */
