@@ -7,6 +7,7 @@ class Weather extends Component {
 
   }
 
+
   render() {
     const { main, description, cityName, wind, sunrise, sunset } = this.props.data
     const iconUrl = 'http://openweathermap.org/img/w/' + description.icon + '.png'
@@ -23,15 +24,16 @@ class Weather extends Component {
               </div>
               <span>{description.description}</span>
             </li>
-            <li>Wind Speed: {wind.speed}</li>
-            <li>Pressure: {main.pressure}</li>
+            <li>Wind Speed: {wind.speed} mph</li>
+            <li>Pressure: {main.pressure} hpa</li>
             <li>Humidity: {main.humidity}%</li>
             <li>Sunrise time: {sunrise}</li>
             <li>sunset time: {sunset}</li>
 
           </ul>
           <div className="hikingRecommendations">
-
+            <h3>Recommendation</h3>
+            <h5>{this.props.recommendation}</h5>
           </div>
         </div>
 
