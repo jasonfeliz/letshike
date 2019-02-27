@@ -11,11 +11,10 @@ const Trail = (props) => {
         </div>
         <div className="trailInfo">
           <div className="top">
-            <h5>{props.data.name}</h5>
-            <span>{props.data.length}</span>
+            <h4>{props.data.name}</h4>
+            <span>{props.data.length} Miles</span>
           </div>
           <div className="bottom">
-            <p>{props.data.condition}</p>
             <p>{props.data.location}</p>
           </div>
         </div>

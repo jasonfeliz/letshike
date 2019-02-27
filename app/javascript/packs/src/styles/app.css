@@ -10,7 +10,9 @@ label {
 input {
   margin-right: 15px;
 }
-
+ul {
+  padding: 0;
+}
 li {
   list-style: none;
 }
@@ -62,10 +64,25 @@ button[type="submit"] {
 
 .trailsListItem {
   width: 30%;
+  margin: auto;
+  margin-bottom: 15px;
 }
 
+.itemImg,
+.trailInfo {
+  width: 75%;
+  margin: 0 auto;
+}
+.trailInfo {
+  padding: 15px 0px 5px 0px;
+  border: solid 1px rgba(0,0,0,.1);
+  border-top: none;
+}
+.itemImg  {
+  height: 300px;
+}
 .itemImg img {
-  width: 300px;
+  width: 100%;
   height: 300px;
 }
 
@@ -73,7 +90,18 @@ button[type="submit"] {
 .bottom {
   display: flex;
   align-items: center;
+  padding: 0 15px;
 }
 
-.top:first-child,
-.bottom
+.top > *:first-child {
+  margin: 0 auto 0 0;
+
+}
+
+.top > span {
+  font-size: .9em;
+  color: rgba(0,0,0,.65);
+}
+.bottom > p {
+  margin-bottom: 5px;
+}
