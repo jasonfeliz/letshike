@@ -63,7 +63,6 @@ class Search extends Component {
             return element
           })
         })
-        console.log(this.state.searchResults)
 
       })
       .then(() => {
