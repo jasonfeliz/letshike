@@ -19,7 +19,7 @@ class Weather extends Component {
           <ul className="weatherData">
             <li className="tempConditions">
               <div>
-                {main.temp}  &#8457;
+                <div>{main.temp}  &#8457;</div>
                 <img src={iconUrl}  />
               </div>
               <span>{description.description}</span>
@@ -32,8 +32,8 @@ class Weather extends Component {
 
           </ul>
           <div className="hikingRecommendations">
-            <h3>Recommendation</h3>
-            <h5>{this.props.recommendation}</h5>
+            <h2>Recommendation</h2>
+            <p>{this.props.recommendation}</p>
           </div>
         </div>
 
