@@ -147,7 +147,7 @@ button[type="submit"] {
 .auth-form input {
   background: transparent;
   border: none;
-  padding: 10px;
+  padding: 15px 5px;
   width: 250px;
   border-bottom: solid 1px #fff;
   color: #fff;
@@ -156,12 +156,13 @@ button[type="submit"] {
 .auth-form button{
   margin-top: 20px;
   width: 250px;
-  height:30px;
+  padding: 10px 15px;
   border: solid 1px #fff;
   color:#fff;
   border-radius: 100px;
   background: transparent;
   cursor:pointer;
+  font-size: 14px;
 }
 .auth-form input:focus {
   outline:none;
