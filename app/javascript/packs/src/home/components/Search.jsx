@@ -68,7 +68,7 @@ class Search extends Component {
       .then(() => {
         const { main, wind } = this.state
         let rec = ""
-        if((main.temp >= 65 && main.temp <= 85) && (main.humidity < 50)){
+        if((main.temp >= 65 && main.temp <= 85)){
           rec = "Perfect weather for hiking - Get out and be the explorer you were born to be!"
         }else if ((main.temp >= 45 && main.temp <= 64)){
           rec = "Weather is good for hiking - Bring a light jacket and plenty of curiosity!"
