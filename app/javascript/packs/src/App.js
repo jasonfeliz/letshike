@@ -12,7 +12,7 @@ import SignUp from './auth/components/SignUp.js'
 import SignOut from './auth/components/SignOut.js'
 import ChangePassword from './auth/components/ChangePassword.js'
 import Home from './home/Home.js'
-
+import image from './images/hiking.jpg'
 
 class App extends Component {
   constructor(props){
@@ -48,11 +48,35 @@ class App extends Component {
   render() {
 
     const { user, loggedIn, flashMessage, messageType } = this.state
+
+    const landingPageHtml = (
+      <React.Fragment>
+
+        <div className="landingPageCanvas">
+          <div>
+              <img src={image}/>
+          </div>
+          <div>
+              <h2>Welcome to LetsHike!</h2>
+              <p>LetsHike is an awesome app for the hiking aficionado that uses
+                uses Hiking Project API to gather trails near a given location and
+                OpenWeather API for local weather. Sign Up -- it's free!
+               </p>
+          </div>
+        </div>
+
+      </React.Fragment>
+    )
+
     const mainHtml = (
       <React.Fragment>
         <Header user={user} loggedIn={loggedIn}/>
         {flashMessage && <div className={messageType}>{flashMessage}</div>}
         <main className='container'>
+          <Route exact path='/' render={() => (
+              landingPageHtml
+            )}
+          />
           <Route path='/sign-up' render={() => (
               <SignUp setUser={this.setUser} flash={this.displayFlash} />
             )}
@@ -76,6 +100,8 @@ class App extends Component {
         </main>
       </React.Fragment>
     )
+
+
 
 
     return (
