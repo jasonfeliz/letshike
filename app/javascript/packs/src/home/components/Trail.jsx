@@ -1,5 +1,6 @@
 import React from 'react'
 import image from '../../images/hiking.jpg'
+import { Route, Link} from 'react-router-dom'
 
 const Trail = (props) => {
   const iconUrl = props.data.imgSmallMed || image
@@ -11,7 +12,7 @@ const Trail = (props) => {
         </div>
         <div className="trailInfo">
           <div className="top">
-            <h4>{props.data.name}</h4>
+            <h4><Link to={"/trail/" + props.data.id}>{props.data.name}</Link></h4>
             <span>{props.data.length} Miles</span>
           </div>
           <div className="bottom">
